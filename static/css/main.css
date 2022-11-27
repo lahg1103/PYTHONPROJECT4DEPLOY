@@ -129,7 +129,7 @@ a {
 	height: 384px;
 	width: 594px;
 	position:relative;
-	background-image: url("/static/images/worldMapLC.png");
+	background-image: url("/static/images/WorldMapLC.png");
 }
 #select1 {
 	position: absolute;
