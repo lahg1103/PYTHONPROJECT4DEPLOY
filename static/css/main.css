@@ -476,8 +476,15 @@ meter {
 #endScreen {
 	height: 384px;
 	width: 594px;
-	position: relative;
-	left: 50%;
-	margin-left: -297px;
 	background-color: #181A18;
+	position: relative;
+	margin-left: -297px;
+	left: 50%;
+}
+#thanks {
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	top: 50%;
+	margin-top: -20px;
 }
