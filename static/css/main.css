@@ -474,5 +474,10 @@ meter {
 }
 /* end screen */
 #endScreen {
+	height: 384px;
+	width: 594px;
+	position: relative;
+	left: 50%;
+	margin-left: -297px;
 	background-color: #181A18;
 }
