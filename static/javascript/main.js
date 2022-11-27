@@ -1,20 +1,3 @@
-function ware(obj) {
-    console.log(obj.id);
-    $.ajax({
-        type: "POST",
-        url : "/shopClick",
-        contentType: "application/json;charset=UTF-8",
-        data : JSON.stringify(obj.id),
-        dataType: 'json',
-        success: function(){
-           alert("hewwo");
-        },
-        failure: function(){
-            alert("now wow");
-        }
-    });
-
-}
 var currentStage;
 var count = 0;
 var currentTarget = "#";
@@ -181,10 +164,8 @@ function turnChange(obj) {
         data : JSON.stringify({'choice': obj.id}),
         dataType: 'json',
         success: function(){
-           console.log("wow");
         },
         failure: function(){
-            console.log("now wow");
         },
         complete: function() {
             fetch('/attackTurn').then(function(response){return response.json()}).then(function(text){
@@ -235,22 +216,7 @@ function turnChange(obj) {
                     }
                     else if (msg == "stage complete") {
                         $("#fight").toggleClass("hidden");
-                        $("#map").toggleClass("hidden");
-                        $.ajax({
-                            type: "POST",
-                            url : "/getMap",
-                            contentType: "application/json;charset=UTF-8",
-                            data : JSON.stringify(currentStage),
-                            dataType: 'json',});
-                            fetch('/getMap').then(function (response) {
-                                return response.json();
-                              }).then(function (text) {
-                                stg1 = text.stage1;
-                                stg2 = text.stage2;
-                                stg3 = text.stage3;
-                                stg4 = text.stage4;
-                                currentStage = updateMap(stg1, stg2, stg3, stg4);
-                            });
+                        $("#endScreen").toggleClass("hidden");
                     }
                 }, 1200);
                 
@@ -289,11 +255,6 @@ function goBack(obj) {
         $("#shop").toggleClass("hidden");
         $("#map").toggleClass("hidden");
     }
-}
-
-//PRINT ID OF ELEMENT TO CONSOLE
-function getid(obj){
-    console.log(obj.id);
 }
 
 //keyboard press
@@ -375,70 +336,6 @@ class Unit {
     		this.row = 0;
     		this.ticksPerFrame = 10;
     	}
-        left() {
-            console.log("walking left");
-            this.frames = 4;
-            this.frameIndex = 0;
-            this.row = 2;
-            this.ticksPerFrame = 8;
-        }
-        right() {
-            console.log("walking right");
-            this.frames = 4;
-            this.frameIndex = 0;
-            this.row = 3;
-            this.ticksPerFrame = 8;
-        }
-        down() {
-            console.log("walking down");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 4;
-            this.ticksPerFrame = 10;
-        }
-        up() {
-            console.log("walking up");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 5;
-            this.ticksPerFrame = 10;
-        }
-        heal() {
-            console.log("healing");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 6;
-            this.ticksPerFrame = 10;
-        }
-        move(direction) {
-            
-            this.context.clearRect(this.x, this.y, this.width, this.height);
-                switch(direction) {
-                case "left": this.left(); if (this.x < 1) {
-                        this.x=0;
-                    }
-                    else {
-                        this.x-=this.width-1;
-                    }; break;
-                case "right": this.right(); if (this.x > 462){
-                        this.x=520;
-                    }
-                    else{
-                        this.x+=this.width-1};
-                        break;
-                case "down": this.down(); if (this.y > 276){
-                        this.y = 322;
-                    } else {
-                        this.y += this.height-2;
-                    };break;
-                case "up": this.up(); if (this.y < 1){
-                        this.y=0;
-                    }else {
-                        this.y-=this.height-2;
-                    }; break;
-                default: break;
-                
-            }}
     }
     class enemy extends Unit {
     
@@ -475,41 +372,6 @@ class Unit {
     		this.row = 0;
     		this.ticksPerFrame = 10;
     	}
-        left() {
-            console.log("walking left");
-            this.frames = 4;
-            this.frameIndex = 0;
-            this.row = 2;
-            this.ticksPerFrame = 8;
-        }
-        right() {
-            console.log("walking right");
-            this.frames = 4;
-            this.frameIndex = 0;
-            this.row = 3;
-            this.ticksPerFrame = 8;
-        }
-        down() {
-            console.log("walking down");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 4;
-            this.ticksPerFrame = 10;
-        }
-        up() {
-            console.log("walking up");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 5;
-            this.ticksPerFrame = 10;
-        }
-        heal() {
-            console.log("healing");
-            this.frames=4;
-            this.frameIndex = 0;
-            this.row = 6;
-            this.ticksPerFrame = 10;
-        }
     }
 
     var carlosmaxHP, targetmaxHP;

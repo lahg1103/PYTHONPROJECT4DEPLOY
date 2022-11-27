@@ -96,21 +96,5 @@ def getHP():
     if request.method == 'GET' :
         return jsonify({carlos.name: carlos.hp, "target": target.hp})
 
-
-# @app.route('/shopClick/', methods=['GET', 'POST'])
-# def shopClick():
-#     ware_options = shop.checkMoney()
-#     options = []
-#     for item in ware_options:
-#         options.append(item.name)
-#     if request.method == "POST":
-#         currentWare = request.get_json()
-#         if (currentWare == 'iron'):
-#             currentWare += " sword"
-#         print(currentWare)
-#         wareObj = shop.fetchStats(currentWare)
-#         wareObj.isSelected = True
-#     return render_template('index.html')
-
 if __name__ == "__main__":
     app.run(debug=True)
