@@ -1,0 +1,474 @@
+/*FONTS*/
+@font-face {
+    font-family: "Chiaro";
+    src: url("fonts/FOT-ChiaroStd-B.otf");
+}
+@font-face {
+    font-family: "Rodin";
+    src: url("fonts/FOTRodin Pro L.otf");
+}
+/*GENERAL*/
+html {
+    margin: 0;
+}
+body {
+    background-color: #EBECF0;
+}
+a {
+	text-decoration: none;
+	color: #181A18;
+}
+/*CLASS*/
+.pointer {
+	cursor: pointer;
+}
+.hidden {
+	display: none;
+}
+.white {
+	color: #F9F9F9;
+}
+.yellow {
+	color: #f6d7aa;
+}
+.center{ 
+    text-align: center;
+}
+.text {
+   font-family: Chiaro;
+}
+.subtext {
+    font-family: Rodin;
+    font-size: 30%;
+}
+.circleSelect {
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	cursor: pointer;
+	border-style: none;
+}
+.shopSelect {
+	background-image: url(../images/shopSelect.png);
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	cursor: pointer;
+	border-style: none;
+}
+.unavailableSelect {
+	/* yes i misspelled unavailable sue me */
+	background-image: url(../images/unavaliableSelect.png);
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	cursor: pointer;
+	border-style: none;
+}
+.levelSelect{
+	background-image: url(../images/levelSelect.png);
+	height: 20px;
+	width:20px;
+	background-color: transparent;
+	cursor: pointer;
+	border-style: none;
+}
+.stage1 {
+	background-image: url(../images/stg2bg.png);
+}
+.stage1D {
+	background-image: url(../images/VillageDialoguebg.png);
+}
+.stage2 {
+	background-image: url(../images/Stage1Background.png);
+}
+/*ID*/
+#title {
+	background: linear-gradient(to bottom, #556270, #e74c3c);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	pointer-events: none;
+	
+	animation: fade 1s ease-in 0s;
+}
+@keyframes fade {
+	0%{
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+
+/*TITLE SCREEN*/
+#titleScreen {
+	left: 50%;
+	margin-left: -297px;
+	height: 384px;
+	width: 594px;
+	background-image: url(../images/titleScreenLastCrusade.png);
+	position: relative;
+}
+#startGame {
+	border-style: none;
+	background-color: transparent;
+	position: absolute;
+	margin-left: 200px;
+	margin-top: 155px;
+	cursor: pointer;
+	font-size: 18px;
+	animation: fade 1s ease-in 0s;
+}
+
+
+/*MAP SCREEN*/
+
+#map {
+	left: 50%;
+	margin-left: -297px;
+	height: 384px;
+	width: 594px;
+	position:relative;
+	background-image: url(../images/worldMapLC.png);
+}
+#select1 {
+	position: absolute;
+	margin-top: 266px;
+	margin-left: 500px;
+}
+#select2 {
+	position: absolute;
+	margin-top: 266px;
+	margin-left: 399px;
+}
+#select3 {
+	position: absolute;
+	margin-top: 214px;
+	margin-left: 290px;
+}
+#select4 {
+	position: absolute;
+	margin-top: 134px;
+	margin-left: 168px;
+}
+
+/*SHOP*/
+#shop {
+	position: relative;
+	margin-left: -297px;
+	left: 50%;
+	width: 594px;
+	height: 384px;
+	background-image: url(../images/shopBackground.png);
+}
+#textbox {
+	background-image: url(../images/dialogueBox.png);
+	position:absolute;
+	width: 400px;
+	height: 94px;
+	margin-top: 260px;
+	margin-left: 15px;
+}
+#iron {
+	height: 30px;
+	width: 80px;
+	position: absolute;
+	margin-top: -55px;
+	margin-left: 20px;
+}
+#concoction {
+	color: blue;
+	height: 30px;
+	width: 80px;
+	position: absolute;
+	margin-top: -55px;
+	margin-left: 110px;
+}
+#stew {
+	color: blue;
+	height: 30px;
+	width: 80px;
+	position: absolute;
+	margin-top: -55px;
+	margin-left: 200px;
+}
+#elixir {
+	color: blue;
+	height: 30px;
+	width: 80px;
+	position: absolute;
+	margin-top: -55px;
+	margin-left: 290px;
+}
+#coins {
+	position:abosulte;
+	width: 80px;
+	height: 28px;
+	margin-top: 0px;
+	margin-left: 500px;
+}
+#olivia {
+	/* placeholder omg */
+	width:256px;
+	height:256px;
+	position:absolute;
+	margin-top:30px;
+	margin-left:20px;
+	background-image: url(../images/oliviaPortrait.png);
+}
+#speaker {
+	width: 128px;
+	height: 20px;
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 70px;
+}
+#text {
+	width: 280px;
+	height: 70px;
+	margin-top: 25px;
+	margin-left: 20px;
+}
+#shopReturn {
+	margin-left: 300px;
+	margin-top: 65px;
+	background-color: transparent;
+	border-style: none;
+}
+
+
+/* fight */
+#fight {
+	left: 50%;
+	margin-left: -297px;
+	width: 594px;
+	height: 384px;
+	position: relative;
+}
+#attack {
+	background-color: #0d2e7b;
+	border-radius: 100%;
+	border: none;
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
+	padding-right: 2%;
+	padding-left: 2%;
+	border-bottom-style: solid;
+	border-bottom-color: #141d74;
+	border-bottom-width: 5px;
+	border-top-width: 5px;
+	border-top-color: #141d74;
+	border-top-style: solid;
+	position:absolute;
+	margin-left: 310px;
+	margin-top: 75px;
+	box-shadow: 5px 5px 5px rgb(38, 33, 26, 0.5);
+	
+}
+#attack:active {
+	border-bottom-color: #0d2e7b;
+	border-top-width: 0px;
+}
+#heal {
+	border-radius: 10%;
+	position: absolute;
+	margin-left: 320px;
+	margin-top: 10px;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+	padding-right: 2%;
+	padding-left: 2%;
+	border: none;
+	border-bottom: solid #4edf5b 5px;
+	border-top: solid #4edf5b 5px;
+	background: rgb(78,223,91);
+	background: linear-gradient(0deg, rgba(78,223,91,1) 0%, rgba(79,229,117,1) 35%, rgba(155,243,118,1) 100%);
+	box-shadow: 5px 5px 5px rgb(38, 33, 26, 0.5);
+}
+#heal:active {
+	border-bottom-color: #4edf5b;
+	border-top-width: 0px;
+}
+#overlay {
+	margin-left: 4px;
+	margin-top: 230px;
+	height: 150px;
+	width: 350px;
+	border-radius: 5%;
+	position: absolute;
+	background: rgb(223,173,78);
+	background: linear-gradient(0deg, rgba(223,173,78,1) 0%, rgba(229,182,79,0.5) 35%, rgba(243,214,118,1) 100%);
+	background-repeat: no-repeat;
+}
+#attacker {
+	margin-left: 130px;
+	margin-top: -10px;
+	position: absolute;
+	width: 100px;
+	background-image: url(../images/speakerblue.png);
+	background-size: contain, cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#attackerportrait {
+	position: absolute;
+	background-size: contain, cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 128px;
+	height: 128px;
+	margin-top: 19px;
+	margin-left: 1px;
+	border: solid 1px rgba(121,85,52,0.5);
+	border-radius: 5%;
+	background-color: rgb(244,234,198);
+	background: linear-gradient(0deg, rgba(244,234,198, 0.5) 0%, rgba(244,234,198, 1) 100%);
+}
+#target {
+	height: 48px;
+	width: 66px;
+	position: absolute;
+	transition: margin 300ms;
+}
+#opponent {
+	height: 48px;
+	width: 66px;
+	position: absolute;
+}
+#mainchar {
+	transition: margin 300ms;
+}
+.focus {
+	margin-left: 265px;
+	margin-top: 180px;
+}
+.wait {
+	margin-left: 345px;
+	margin-top: 180px;
+}
+.focusatk {
+	margin-left: -54px;
+}
+.waitatk{
+	margin-left: 315px;
+	margin-top: 180px;
+}
+.flipH {
+	transform: rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+  	-moz-transform:rotateY(180deg);
+  	-o-transform:rotateY(180deg);
+  	-ms-transform:rotateY(180deg);
+}
+
+meter {
+	-webkit-appearance: none;
+	height: 7px;
+	width: 50px;
+	margin-left: 10px;
+}
+
+#stats {
+	position: absolute;
+	margin-top: 19px;
+	margin-left: 150px;
+	height: 128px;
+	width: 100px;
+	font-size: 12px;
+}
+
+/* death screen */
+
+#deathScreen {
+	height: 384px;
+	width: 594px;
+	background-color: #181A18;
+	position: relative;
+	margin-left: -297px;
+	left: 50%;
+}
+#deathScreenreturn {
+	position: absolute;
+	margin-top: 197px;
+	margin-left: 297px;
+	background-color: transparent;
+	border-style: none;
+}
+
+/* level */
+
+#level {
+	position:relative;
+	left: 50%;
+	margin-left: -297px;
+	height: 384px;
+	width: 594px;
+}
+#backgroundlevel {
+	position: absolute;
+	height: 384px;
+	width: 594px;
+}
+.stg1bg {
+	background-image: url(../images/stg2bg.png);
+}
+.enemystg1 {
+	background-image: url(../images/enemyspritesheet.png);
+	position: absolute;
+	height: 48px;
+	width: 66px;
+	animation-duration: 0.75s;
+	animation-iteration-count: infinite;
+	transform-origin: bottom;
+}
+.enemystg1:hover {
+	animation-name: bounce;
+	animation-timing-function: ease;
+}
+@keyframes bounce {
+	0% {
+		transfrom: translateY(0);
+	}
+	50% { 
+		transform: translateY(-5px);
+	}
+	100%{
+		transform: translateY(0);
+	}
+}
+
+#Bandit0 {
+	margin-left: 417px;
+	margin-top: 50px;
+}
+#Bandit1 {
+	margin-left: 462px;
+	margin-top: 288px;
+}
+#Bandit2 {
+	margin-left: 315px;
+	margin-top: 144px;
+}
+#Bandit3 {
+	margin-left: 200px;
+	margin-top: 100px;
+}
+#Bandit4 {
+	margin-left: 270px;
+	margin-top: 270px;
+}
+#stageSpriteMU {
+	margin-left: 170px;
+	margin-top: 173px;
+	background-image: url(../images/MUsprite.png);
+	position: absolute;
+	height: 48px;
+	width: 66px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+}

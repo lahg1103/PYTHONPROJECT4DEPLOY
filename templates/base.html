@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../static/images/FaviconLC.png">
+    <title> Last Crusade </title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block nav %}
+    <div id="nav">
+        <h1 id="title" class="center text">Last Crusade</h1>
+        
+    </div>
+    {% endblock %}
+    <!-- height="384" width="594" -->
+
+        <div id="titleScreen">
+            <button class="text white pointer" id="startGame" onclick="advance(this)">press to start game</button>
+        </div>
+ 
+    <div id="map" class="hidden">
+        <button class="circleSelect" id="select4" onclick="advance(this)"></button>
+        <button class="circleSelect" id="select3" onclick="advance(this)"></button>
+        <button class="circleSelect" id="select2" onclick="advance(this)"></button>
+        <button class="circleSelect" id="select1" onclick="advance(this)"></button>
+    </div>
+
+    <div id="fight" class="hidden">
+        <div id="overlay">
+            <p id="attacker" class="text white center"> {{ unit.name }} </p>
+            <img id="attackerportrait" src={{ unit.image }} width="128" height="128">
+            <div id="stats" class="text center" >
+                <p id="sHP" > hp : {{ unit.hp }} </p>
+                <p id="sStr" > strength : {{ unit.str}} </p>
+                <p id="sDef" > defense : {{ unit.defense }} </p>
+            </div>
+            <button id="attack" class="text white pointer" style="font-size:18px" onclick="turnChange(this)"> Attack </button>
+            <button id="heal" class="text white pointer" style="font-size:18px" onclick="turnChange(this)">Heal</button>
+        </div>
+        
+        <div id="target" class="wait">
+            <meter id="hpbarE" min = "0" max= {{ target.max_hp }}
+            low = {{ target.max_hp / 2 }} high = {{ target.max_hp - 10 }} optimum = {{ target.max_hp }}
+            value = {{ target.hp }} ></meter>
+            <canvas id="enemychar" height="55" width="66"></canvas>
+        </div>
+        
+        <div id="opponent" class="focus">
+            
+            <meter id="hpbarMU"
+            min = "0" max= {{ unit.max_hp }}
+            low = {{ unit.max_hp / 2 }} high = {{ unit.max_hp - 10 }} optimum = {{ unit.max_hp }}
+            value = {{ unit.hp }} ></meter>
+            <canvas id="mainchar" height="55" width="66"></canvas>
+        </div>
+    </div>
+    <div id="level" class="hidden stg1bg">
+        <div id="stageSpriteMU" class="flipH"></div>
+        {% for e in elist %}
+        <div id={{ e.name }} class="enemystg1 pointer" onclick="advance(this)"></div>
+        {% endfor %}
+
+    </div>
+        <div id="shop" class="hidden">
+            <div id="coins" class="text yellow center" style="background-color: #261f0d"> {{ unit.money }} </div>
+          
+            <div id="olivia"></div>
+            <div id="textbox">
+                <p id="speaker" class="text white">Olivia</p>
+            <button id="shopReturn" class="text pointer" onclick="goBack(this)"> return to map </button>
+                <!-- {% if wares != "you cannot afford these wares!"%}
+                <p id="text" class="text" style="font-size: 15px"> shop these wares: </p>
+                {% for ware in wares %}
+                    <button id={{ ware }} class="text pointer wareoptions" style="font-size: 12px" onclick="ware(this)"> {{ ware }} </button>
+                <span id="aboutWare">        
+                    <p id="warename"></p>
+                    <p id="price"></p>
+                    <p id="description"> </p>
+                 </span>
+                {% endfor %}
+                    
+                {% else %}
+                <p id="text" class="text" style="font-size: 15px"> {{ wares }} </p>
+                {% endif %} -->
+    </div>
+    </div>
+    <div id="deathScreen" class="hidden">
+        <button id="deathScreenreturn" class="white text" onclick="goBack(this)">go back</button>
+    </div>
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+</body>
+<footer id="footer" class="center">
+    <p class="subtext">copyright ⓒ Leslie H., Kofi N., Oscar V., Braulio G. 2022</p>
+</footer>
+</html>
