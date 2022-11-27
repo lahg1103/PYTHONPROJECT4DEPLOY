@@ -25,9 +25,9 @@ class unit():
         
     def attack(self, target):
         
-        atkpwr = self.str - random.randint(int(target.defense * 0.3), target.defense)
+        atkpwr = self.str - int(target.defense * 0.5)
         if self.name == 'Carlos' :
-            atkpwr = int(atkpwr * 1.4) + 7
+            atkpwr = int(atkpwr * 1.4) + 4
         target.hp -= atkpwr
         if target.hp <= 0:
             combatDict = {self.name: self.hp, target.name: target.hp, "message": "you win"}
