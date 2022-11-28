@@ -2,7 +2,7 @@ var currentStage;
 var count = 0;
 var currentTarget = "#";
 //advance function
-var gameScreens = ["titleScreen", "select1", "select2", "select3", "select4", "dialogue", "level", "fight"]
+
 function advance(obj){ 
     var next = "#";
     var current = "#";
@@ -11,7 +11,7 @@ function advance(obj){
     if (obj.id == "startGame") {
         next+="map";
         current += "titleScreen";
-        console.log(next);
+        
         fetch('/getMap').then(function (response) {
           return response.json();
         }).then(function (text) {
@@ -47,13 +47,13 @@ function advance(obj){
             case "select2":
                 if ($("#select2").hasClass("unavailableSelect"))
                     {
-                        console.log("nope cute you thought tho");
+                        
                     }
                 else if ($("#select2").hasClass("levelSelect"))
                     {
                         $("#level").removeClass("stg1bg");
                         $("#level").addClass("stg2bg");
-                        console.log("i dont know why this does not work");
+                        
                         next += "level";
                         if (count == 0) {
                             game.init();
@@ -71,7 +71,7 @@ function advance(obj){
             case "select3":
                 if ($("#select3").hasClass("unavailableSelect"))
                     {
-                        console.log("nope cute you thought tho");
+                        
                     }
                 else if ($("#select3").hasClass("levelSelect"))
                     {
@@ -92,7 +92,7 @@ function advance(obj){
             case "select4":
                 if ($("#select4").hasClass("unavailableSelect"))
                 {
-                    console.log("nope cute you thought tho");
+                    
                 }
             else if ($("#select4").hasClass("levelSelect"))
                 {
@@ -110,7 +110,7 @@ function advance(obj){
                 current += "level";
                 next += "fight";
                 $("#sHP").text('hp: ' + carlosmaxHP);
-                $("#hpbarMU").val(carlosmaxHP);
+
                 $("#hpbarE").val(targetmaxHP);
                 break;
             case "Bandit1":
@@ -118,7 +118,7 @@ function advance(obj){
                 current += "level";
                 next += "fight";
                 $("#sHP").text('hp: ' + carlosmaxHP);
-                $("#hpbarMU").val(carlosmaxHP);
+
                 $("#hpbarE").val(targetmaxHP);
                 break;
             case "Bandit2":
@@ -126,7 +126,7 @@ function advance(obj){
                 current += "level";
                 next += "fight";
                 $("#sHP").text('hp: ' + carlosmaxHP);
-                $("#hpbarMU").val(carlosmaxHP);
+ 
                 $("#hpbarE").val(targetmaxHP);
                 break;
             case "Bandit3":
@@ -134,7 +134,7 @@ function advance(obj){
                 current += "level";
                 next += "fight";
                 $("#sHP").text('hp: ' + carlosmaxHP);
-                $("#hpbarMU").val(carlosmaxHP);
+                
                 $("#hpbarE").val(targetmaxHP);
                 break;
             case "Bandit4":
@@ -142,7 +142,7 @@ function advance(obj){
                 current += "level";
                 next += "fight";
                 $("#sHP").text('hp: ' + carlosmaxHP);
-                $("#hpbarMU").val(carlosmaxHP);
+                
                 $("#hpbarE").val(targetmaxHP);
                 break;
             default:
@@ -176,11 +176,6 @@ function turnChange(obj) {
                 let b3 = text.Bandit3;
                 let b4 = text.Bandit4;
 
-                console.log(b0);
-                console.log(b1);
-                console.log(b2);
-                console.log(b3);
-                console.log(b4);
                 
                 if( b0 != undefined) {
                     $("#hpbarE").val(b0);
@@ -197,9 +192,15 @@ function turnChange(obj) {
                 if (b4 != undefined) {
                     $("#hpbarE").val(b4);
                 }
-                $("#sHP").text('hp: ' + c);
-                $("#hpbarMU").val(c);
-                console.log(text.message);
+                if (c != undefined) {
+                    $("#sHP").text('hp: ' + c);
+                    $("#hpbarMU").val(c);
+                }
+                else {
+                    $("#sHP").text('hp: ' + carlosmaxHP);
+                    $("#hpbarMU").val(carlosmaxHP);
+                }
+                
                 msg = text.message;
                 if (text.Carlos < 0) {
                     msg = "you lose" 
@@ -227,7 +228,7 @@ function turnChange(obj) {
     });
 
     if (obj.id == "attack") {
-        console.log("attack");
+        
         game.mu.atk();
         
         $("#mainchar").toggleClass("focusatk");
@@ -241,7 +242,7 @@ function turnChange(obj) {
         }, 801);
     }
     else if (obj.id == "heal") {
-        console.log("heal");
+        
         game.mu.heal();
     }
     
@@ -322,7 +323,7 @@ class Unit {
         }
     
         atk() {
-    		console.log("hewwo");
+    		
             this.frames = 4;
             this.frameIndex = 0;
             this.row = 1;
@@ -330,7 +331,7 @@ class Unit {
         }
     
     	idle() {
-    		console.log("not hewwo");
+    		
     		this.frames = 4;
     		this.frameIndex = 0;
     		this.row = 0;
@@ -400,7 +401,7 @@ class Unit {
                         if ($("#opponent").hasClass("focus")) {
                             if ($("#opponent").hasClass("flipH"))
                             {
-                                console.log("already flipped genius");
+                                
                             }
                             else {
                             $("#opponent").toggleClass("flipH");
@@ -464,7 +465,6 @@ function updateMap(s1, s2, s3, s4) {
         $("#select4").addClass("unavailableSelect ");
       }
       else if (s2 == true) {
-        console.log("works!")
         r= 2;
         $("#select1").removeClass("levelSelect");
         $("#select1").addClass("shopSelect");

@@ -21,7 +21,6 @@ def update_stage(x, sdict):
 def update_enemy(t, el):
     if len(el) > 0:
         t = el[len(el)-1]
-        print(len(el))
         return t
     else:
         return "stage complete"
@@ -33,9 +32,9 @@ def combat(choice, u, t, el):
     if choice == "attack":
         result = u.attack(t)
         result = t.attack(u)
-        print(result)
+
         if result[u.name] <= 0:
-            print("check yes juliet")
+            
             return {u.name: u.hp, t.name: t.hp, "message": "you lose"}
         elif result[t.name] <= 0:
             if (len(el) > 0):
@@ -43,7 +42,5 @@ def combat(choice, u, t, el):
         else:
             return result
     elif choice == "heal":
-        print(u.hp)
-        print(t.hp)
-        return u.heal()
+        return u.heal(t)
 

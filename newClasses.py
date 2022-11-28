@@ -40,9 +40,13 @@ class unit():
         self.stats = {"name": self.name, "hp": self.hp, "str": self.str, "defense": self.defense, "money": self.money}
         target.stats = {"name": target.name, "hp": target.hp, "str": target.str, "defense": target.defense, "money": target.money}
         return combatDict
-    def heal(self):
+    def heal(self, target):
         if (self.hp == self.max_hp):
             pass
         else:
             self.hp += random.randint(2, int(self.max_hp * 0.5))
+            if self.hp > self.max_hp:
+                self.hp = self.max_hp
             self.stats = {"name": self.name, "hp": self.hp, "str": self.str, "defense": self.defense, "money": self.money}
+        combatDict = {self.name: self.hp, target.name: target.hp, "message": "combat"}
+        return combatDict

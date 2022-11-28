@@ -36,16 +36,12 @@ def index():
 
 @app.route('/getMap', methods=['GET', 'POST'])
 def returnMap():
-    global target
     global stages
     if request.method == 'GET':
-        print(stages)
-        print("works")
         return jsonify(stages)
     elif request.method == 'POST':
         currentStage = request.get_json()
         stages = subfuncs.update_stage(currentStage, stages)
-        print(stages)
         return jsonify(stages)
     
 
@@ -54,29 +50,29 @@ def returnMap():
 def attackTurn():
     global carlos
     global elist
-    global stages
     global target
-    choice = "attack"
+    global choice
     
     if request.method == 'POST':
         msg = request.get_json()
+        global choice
+        choice = msg["choice"]
         
         return 'Success', 200
     elif request.method == 'GET':
         
-        unit = carlos
-        
-            
+
+        print(choice)
         if choice == "attack":
-            outcome = subfuncs.combat(choice, unit, target, elist)
+            outcome = subfuncs.combat(choice, carlos, target, elist)
             for key in outcome:
                 if key == "message":
                     if outcome[key] == "you lose":
                         print(outcome[key])
-                        unit.hp = unit.max_hp
+                        carlos.hp = carlos.max_hp
                         target.hp = target.max_hp
                     elif outcome[key] == "you win":
-                        unit.hp = unit.max_hp
+                        
 
                         if len(elist) >= 0 :
                             elist.pop()
@@ -88,8 +84,8 @@ def attackTurn():
                             return jsonify({"message": "stage complete"})
             return jsonify(outcome)
         elif choice == "heal":
-            print("does this work?")
-            return jsonify({"unit": unit.hp, "target": target.hp})
+            outcome = subfuncs.combat(choice, carlos, target, elist)
+            return jsonify(outcome)
 
 @app.route('/getHP', methods=['GET', 'POST'])
 def getHP():
