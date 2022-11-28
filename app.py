@@ -60,9 +60,6 @@ def attackTurn():
         
         return 'Success', 200
     elif request.method == 'GET':
-        
-
-        print(choice)
         if choice == "attack":
             outcome = subfuncs.combat(choice, carlos, target, elist)
             for key in outcome:
@@ -72,8 +69,6 @@ def attackTurn():
                         carlos.hp = carlos.max_hp
                         target.hp = target.max_hp
                     elif outcome[key] == "you win":
-                        
-
                         if len(elist) >= 0 :
                             elist.pop()
                             carlos.money += random.randint(15, 35)
